@@ -5,6 +5,7 @@
 ##          and find the two values that add up to 2020, then
 ##          find those two values' product
 
+# Import necessary modules
 import pandas as pd
 import numpy as np
 
@@ -25,7 +26,7 @@ while exp_sum != 2020:
 	values = df[col].sample(n=2)
 	exp_sum = values.sum()
 
-	if exp_sum == 2000:
+	if exp_sum == 2020:
 		values = values.tolist()
 		print(f"The values {str(values[0])} and {str(values[1])} have a sum of 2020.")
 		print(f"The product of these two values is {np.prod(values)}")
