@@ -19,14 +19,22 @@ col = str(df.columns.tolist()[0])
 
 # Execute a loop that will sample two values from the expense column and find
 # their sum. The loop will stop once two values with a sum of 2020 has been found.
-exp_sum = 0
-while exp_sum != 2020:
+def expense_slvr(num_values=2):
 
-	# Sample two expense values from the dataframe and find their sum
-	values = df[col].sample(n=2)
-	exp_sum = values.sum()
+	exp_sum = 0
 
-	if exp_sum == 2020:
-		values = values.tolist()
-		print(f"The values {str(values[0])} and {str(values[1])} have a sum of 2020.")
-		print(f"The product of these two values is {np.prod(values)}")
+	while exp_sum != 2020:
+
+		# Sample two expense values from the dataframe and find their sum
+		values = df[col].sample(n=num_values)
+		exp_sum = values.sum()
+
+		if exp_sum == 2020:
+			values = values.tolist()
+			print("The following values have a sum of 2020: ")
+			print(*values, sep=" ")
+			print(f"The product of these values is {np.prod(values)}")
+
+# Find the values that sum to 2020 for the two and three value problem.
+expense_slvr(num_values=2)
+expense_slvr(num_values=3)
